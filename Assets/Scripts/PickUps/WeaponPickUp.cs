@@ -12,6 +12,8 @@ public class WeaponPickUp : Pickup
     //     }
     // }
     protected override void OnPickUp(ActiveWeapon activeWeapon){
-        activeWeapon.SwitchWeapon(weaponSO);
+        if(activeWeapon!=null){
+            activeWeapon.SwitchWeapon(weaponSO);
+        }
     }
 }

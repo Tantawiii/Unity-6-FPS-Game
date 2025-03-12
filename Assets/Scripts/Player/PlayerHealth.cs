@@ -1,6 +1,7 @@
 using Cinemachine;
 using StarterAssets;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
@@ -29,10 +30,12 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void PlayerGameOver()
+    void PlayerGameOver()
     {
         weaponCam.parent = null;
-        activeWeapon.SetZoomVigette(false);
+        if(activeWeapon != null){
+            activeWeapon.SetZoomVigette(false);
+        }
         deathVirtualCamera.Priority = priorityGameOver;
         gameOverPanel.SetActive(true);
         StarterAssetsInputs starterAssetsInputs = FindFirstObjectByType<StarterAssetsInputs>();

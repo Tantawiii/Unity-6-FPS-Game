@@ -4,7 +4,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] float speed = 15f;
     [SerializeField] ParticleSystem hitVFX;
-    int damage;
+    int damage = 2;
     Rigidbody rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
