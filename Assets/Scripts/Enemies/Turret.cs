@@ -8,19 +8,23 @@ public class Turret : MonoBehaviour
     [SerializeField] Transform playerTargetted;
     [SerializeField] Transform bulletSpawnLocation;
     [SerializeField] float fireRate = 2f;
+    [SerializeField] int damage = 2;
     PlayerHealth playerHealth;
+    EnemyHealth enemyHealth;
     ActiveWeapon activeWeapon;
 
     void Start()
     {
         playerHealth = FindFirstObjectByType<PlayerHealth>();
+        enemyHealth = GetComponentInParent<EnemyHealth>();
         activeWeapon = FindFirstObjectByType<ActiveWeapon>();
         StartCoroutine(FireRoutine());
     }
 
     void Update()
     {
-        turretHead.LookAt(playerTargetted);
+        if(enemyHealth.GetEnemyHealth() != 0)
+            turretHead.LookAt(playerTargetted);
     }
 
     IEnumerator FireRoutine(){
@@ -28,9 +32,11 @@ public class Turret : MonoBehaviour
         {
             yield return null;
         }
-        while(playerHealth){
+        while(playerHealth && enemyHealth.GetEnemyHealth() != 0){
             yield return new WaitForSeconds(fireRate);
-            Instantiate(bulletPrefab, bulletSpawnLocation.position, turretHead.rotation);
+            Bullet bullet = Instantiate(bulletPrefab, bulletSpawnLocation.position, Quaternion.identity).GetComponent<Bullet>();
+            bullet.transform.LookAt(playerTargetted);
+            bullet.Initalize(damage);
         }
     }
 }

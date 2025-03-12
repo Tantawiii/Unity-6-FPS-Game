@@ -340,6 +340,7 @@ MonoBehaviour:
   startEnemyHealth: 3
   enemyHealthSlider: {fileID: 8584754783637768313}
   explosionOfBot: {fileID: 7991010611174298082, guid: 7d176f64e81bf6e418d7d80eb22b58b7, type: 3}
+  enemyScore: 5
 --- !u!95 &7916983252414946692
 Animator:
   serializedVersion: 7

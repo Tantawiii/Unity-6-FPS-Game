@@ -6,9 +6,11 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] int startEnemyHealth = 3;
     [SerializeField] Slider enemyHealthSlider;
     [SerializeField] GameObject explosionOfBot;
+    [SerializeField] int enemyScore = 0;
     int currentEnemyHealth;
     const string DEATH_STRING = "Death";
     Animator animator;
+    GameManager gameManager;
     void Awake()
     {
         currentEnemyHealth = startEnemyHealth;
@@ -19,6 +21,13 @@ public class EnemyHealth : MonoBehaviour
         }
         animator = GetComponent<Animator>();
     }
+
+    void Start()
+    {
+        gameManager = FindAnyObjectByType<GameManager>();
+        gameManager.AdjustEnemiesLeft(1);
+    }
+
     public void TakeDamage(int damage){
         currentEnemyHealth -= damage;
         if (enemyHealthSlider != null)
@@ -27,6 +36,8 @@ public class EnemyHealth : MonoBehaviour
         }
         if(currentEnemyHealth <= 0){
             if(explosionOfBot != null)
+                gameManager.AdjustEnemiesLeft(-1);
+                gameManager.AdjustScore(enemyScore);
                 SelfDestruct();
         }
     }

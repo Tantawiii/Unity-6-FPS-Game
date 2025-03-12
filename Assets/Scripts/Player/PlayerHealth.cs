@@ -1,4 +1,5 @@
 using Cinemachine;
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera deathVirtualCamera;
     [SerializeField] Transform weaponCam;
     [SerializeField] Image[] healthBars;
+    [SerializeField] GameObject gameOverPanel;
     ActiveWeapon activeWeapon;
     int currentHealth;
     int priorityGameOver = 20;
@@ -21,12 +23,21 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int amount){
         currentHealth -= amount;
         AdjustHealthUi();
-        if(currentHealth <= 0){
-            weaponCam.parent = null;
-            activeWeapon.SetZoomVigette(false);
-            deathVirtualCamera.Priority = priorityGameOver;
-            Destroy(this.gameObject);
+        if(currentHealth <= 0)
+        {
+            PlayerGameOver();
         }
+    }
+
+    private void PlayerGameOver()
+    {
+        weaponCam.parent = null;
+        activeWeapon.SetZoomVigette(false);
+        deathVirtualCamera.Priority = priorityGameOver;
+        gameOverPanel.SetActive(true);
+        StarterAssetsInputs starterAssetsInputs = FindFirstObjectByType<StarterAssetsInputs>();
+        starterAssetsInputs.SetCursorState(false);
+        Destroy(this.gameObject);
     }
 
     void AdjustHealthUi(){

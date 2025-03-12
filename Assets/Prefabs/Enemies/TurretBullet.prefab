@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3879294391119140941}
   - component: {fileID: 1541162281530142311}
   - component: {fileID: 5803979935200551782}
+  - component: {fileID: 3280997368626820129}
   m_Layer: 0
   m_Name: TurretBullet
   m_TagString: Untagged
@@ -121,3 +122,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69f32494a2c40842bd577c74d5b5ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 15
+  hitVFX: {fileID: 6870791784894434988, guid: ab3e6e7f08bb26c48aedd138abd06e2f, type: 3}
+--- !u!54 &3280997368626820129
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2590992000673669226}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1

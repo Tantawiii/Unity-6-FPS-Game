@@ -388,6 +388,7 @@ MonoBehaviour:
   startEnemyHealth: 3
   enemyHealthSlider: {fileID: 5939892679414094610}
   explosionOfBot: {fileID: 7991010611174298082, guid: 7d176f64e81bf6e418d7d80eb22b58b7, type: 3}
+  enemyScore: 50
 --- !u!65 &1606314489987178124
 BoxCollider:
   m_ObjectHideFlags: 0
