@@ -1,6 +1,5 @@
 using StarterAssets;
 using UnityEngine;
-using UnityEngine.AI;
 using System.Collections;
 
 public class RobotChaserBehavior : MonoBehaviour

@@ -1,7 +1,6 @@
 using Cinemachine;
 using StarterAssets;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour

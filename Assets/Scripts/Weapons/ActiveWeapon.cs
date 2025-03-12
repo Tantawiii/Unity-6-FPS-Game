@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Cinemachine;
-using Microsoft.Unity.VisualStudio.Editor;
 using StarterAssets;
 using TMPro;
 using UnityEngine;
