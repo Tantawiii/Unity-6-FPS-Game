@@ -16,7 +16,7 @@ MonoBehaviour:
   weaponSlot: 2
   Damage: 4
   FireRate: 0.07
-  WeaponRange: 8
+  WeaponRange: 15
   WeaponAmmo: 76
   hitVFX: {fileID: 4964422952162931191, guid: 67d675cd835a02a429383a74a6ba628a, type: 3}
   IsAutomatic: 1
